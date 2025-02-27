@@ -14,7 +14,6 @@ void main() {
   final IChatRepository chatRepository = ChatRepositoryImpl(
     http: HttpTransport(Dio()),
     mapper: ChatMapper(),
-    socketUrl: 'http://acec93397c45740cd91228806400ad86-1631035604.ap-northeast-2.elb.amazonaws.com:4000/ws', // 예시 주소
   );
 
   final ChatUseCase chatUseCase = ChatUseCase(chatRepository);
