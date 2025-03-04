@@ -100,8 +100,6 @@
 ### **Failure + TaskEither 타입을 활용한 에러 핸들링**  
 - **문제상황**<br/>API 호출 및 비동기 로직에서 발생하는 예외 처리가 일관되지 않아, 오류 발생 시 코드 흐름을 예측하기 어려웠습니다. 또한, 단순 `try-catch` 방식은 코드 가독성을 떨어뜨렸습니다.<br/><br/>
 - **해결방법**<br/>`TaskEither<Failure, T>` 패턴을 적용하여 성공과 실패를 명확하게 구분하고, 실패 시 풍부한 의미를 담은 에러 타입을 반환하여 예외 처리를 체계적으로 관리했습니다.<br/><br/>
-- **내용정리 링크**  
-  - [Future와 Task의 차이](https://ssuojae.tistory.com/358)  
 
 
 <br/>
@@ -111,9 +109,6 @@
 ### **Freezed vs Equatable vs JsonSerializable 비교**  
 - **문제상황**<br/>Freezed는 강력한 기능을 제공하지만, 코드 생성(CodeGen)으로 인해 빌드 시간이 증가하고, 불필요한 기능이 많아 프로젝트에 과도한 복잡성을 초래했습니다. 또한, DTO와 상태 관리를 위한 최소한의 기능만 필요했기 때문에 불필요한 기능을 제거할 필요가 있었습니다.<br/><br/>  
 - **해결방법**<br/>Freezed 대신 **Equatable + sealed class**를 사용하여 불변성과 패턴 매칭을 효과적으로 구현하고, DTO 변환에는 `JsonSerializable`을 활용하여 필요한 최소한의 직렬화 기능만 추가했습니다. 이를 통해 코드의 미니멀리즘을 유지하면서도 유지보수성을 극대화했습니다. <br/><br/> 
-- **내용정리 링크**  
-  - [Freezed 패키지 사용이유 알아보기](https://ssuojae.tistory.com/272)
-  - [Freezed 패키지에서 Equatable 패키지로 옮긴 이유](https://ssuojae.tistory.com/391)
 
 <br/>
 
@@ -128,5 +123,3 @@
   2. Jenkins Pipeline에서 `environment` 블록을 활용하여 Flutter 및 Android SDK 경로를 `PATH` 환경 변수에 추가.  
   3. Jenkins 컨테이너가 해당 디렉토리에 접근할 수 있도록 `chown -R 1000:1000`으로 권한 설정.  
   이를 통해 Jenkins가 로컬 Flutter 및 Android SDK를 정상적으로 인식하여 빌드를 수행할 수 있도록 해결했습니다.  <br/><br/>
-- **내용정리 링크**  
-  - [Jenkins CI/CD 파일 경로 문제 해결](https://ssuojae.tistory.com/362)  
